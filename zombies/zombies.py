@@ -57,11 +57,11 @@ class BF:
             elif char == "-":
                 self.cells[self.index] -= 1
             elif char == ",":
-                char = self.stdin.read(1)
-                self.cells[self.index] = ord(char)
+                input_char = self.stdin.read(1)
+                self.cells[self.index] = ord(input_char)
             elif char == ".":
-                char = chr(self.cells[self.index])
-                self.stdout.write(char)
+                output_char = chr(self.cells[self.index])
+                self.stdout.write(output_char)
             elif char == '[':
                 end = -1
                 for next_pos, next_char in enumerate(code[pos:]):
