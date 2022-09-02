@@ -1,4 +1,4 @@
-brains.py
+zombies
 ==========
 Run brainfuck files.
 
@@ -12,16 +12,16 @@ Installation
 -------------
 .. code-block:: sh
 
-    $ pip install brains.py
+    $ pip install zombies
 
 
 Python Usage
 -------------
 .. code-block:: py
 
-    import brains
+    import zombies
 
-    interpreter = brains.BF()
+    interpreter = zombies.BF()
     code = '''
     >+++++++++[<++++++++>-]<.>+++++++[<++++>-]<+.+++++++..+++.[-]
     >++++++++[<++++>-] <.>+++++++++++[<++++++++>-]<-.--------.+++
@@ -39,16 +39,15 @@ Run a `.bf` file
 
 .. code-block:: sh
 
-    $ brains helloworld.bf
+    $ zombies helloworld.bf
 
 
 Use the REPL
 
 .. code-block:: sh
 
-    $ brains
-    Running Brainfuck REPL made in Python...
-    brains.py 0.1.0a by Kaushal Dabbiru
+    $ zombies
+    Brainfuck REPL made in Python | zombies 1.0.0a by The Master | License MIT
     Type "stop" to exit
     \\\ >>++<<+-
 
