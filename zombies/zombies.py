@@ -47,7 +47,7 @@ class IncrementingCells(list):
 class BF:
     def __init__(self, stdin: "Readable" = sys.stdin, stdout: "Writable" = sys.stdout):
         self.cells = IncrementingCells()
-        self._index = 0
+        self.index = 0
 
         self.stdin = stdin
         self.stdout = stdout
@@ -57,21 +57,21 @@ class BF:
 
         for pos, char in iterator:
             if char == ">":
-                self._index += 1
+                self.index += 1
             elif char == "<":
-                if self._index <= 0:
+                if self.index <= 0:
                     self.cells.insert(0, 0)
                 else:
-                    self._index -= 1
+                    self.index -= 1
             elif char == "+":
-                self.cells[self._index] += 1
+                self.cells[self.index] += 1
             elif char == "-":
-                self.cells[self._index] -= 1
+                self.cells[self.index] -= 1
             elif char == ",":
                 char = self.stdin.read(1)
-                self.cells[self._index] = ord(char)
+                self.cells[self.index] = ord(char)
             elif char == ".":
-                char = chr(self.cells[self._index])
+                char = chr(self.cells[self.index])
                 self.stdout.write(char)
             elif char == '[':
                 end = -1
@@ -82,7 +82,7 @@ class BF:
                     raise RuntimeError('Unclosed bracket')
 
                 pos += 1
-                while self.cells[self._index] != 0:
+                while self.cells[self.index] != 0:
                     self.run(code[pos:end])
 
                 while pos < end:
