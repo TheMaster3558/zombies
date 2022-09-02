@@ -1,6 +1,6 @@
 zombies
-==========
-Run brainfuck files.
+========
+Run brainfuck code.
 
 
 License

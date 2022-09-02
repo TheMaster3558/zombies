@@ -1,4 +1,4 @@
-"""Run brainfuck files."""
+"""Run brainfuck code."""
 
 from .zombies import BF
 
