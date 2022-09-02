@@ -42,11 +42,10 @@ class BF:
 
     def run(self, code: str) -> None:
         iterator = iter(enumerate(code))
-
         for pos, char in iterator:
             if char == ">":
                 self.index += 1
-                while self.index > len(self.cells):
+                while self.index >= len(self.cells):
                     self.cells.append(0)
             elif char == "<":
                 while self.index <= 0:
@@ -68,6 +67,7 @@ class BF:
                 for next_pos, next_char in enumerate(code[pos:]):
                     if next_char == ']':
                         end = pos + next_pos
+                        break
                 if end == -1:
                     raise RuntimeError('Unclosed bracket')
 
@@ -76,7 +76,10 @@ class BF:
                     self.run(code[pos:end])
 
                 while pos < end:
-                    pos, _ = next(iterator)
+                    try:
+                        pos, _ = next(iterator)
+                    except StopIteration:
+                        return
 
     def run_file(self, filename: str) -> None:
         with open(filename, "r") as file:
