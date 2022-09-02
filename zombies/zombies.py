@@ -34,7 +34,7 @@ __all__ = ("BF",)
 
 class BF:
     def __init__(self, stdin: "Readable" = sys.stdin, stdout: "Writable" = sys.stdout):
-        self.cells = []
+        self.cells = [0]
         self.index = 0
 
         self.stdin = stdin
