@@ -32,21 +32,9 @@ if TYPE_CHECKING:
 __all__ = ("BF",)
 
 
-class IncrementingCells(list):
-    def __getitem__(self, index: int) -> int:
-        while index >= len(self):
-            self.append(0)
-        return super().__getitem__(index)
-
-    def __setitem__(self, index: int, value: int) -> None:
-        while index >= len(self):
-            self.append(0)
-        super().__setitem__(index, value)
-
-
 class BF:
     def __init__(self, stdin: "Readable" = sys.stdin, stdout: "Writable" = sys.stdout):
-        self.cells = IncrementingCells()
+        self.cells = []
         self.index = 0
 
         self.stdin = stdin
@@ -58,8 +46,10 @@ class BF:
         for pos, char in iterator:
             if char == ">":
                 self.index += 1
+                while self.index > len(self.cells):
+                    self.cells.append(0)
             elif char == "<":
-                if self.index <= 0:
+                while self.index <= 0:
                     self.cells.insert(0, 0)
                 else:
                     self.index -= 1
