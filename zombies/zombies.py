@@ -62,14 +62,14 @@ class BF:
             elif char == ".":
                 output_char = chr(self.cells[self.index])
                 self.stdout.write(output_char)
-            elif char == '[':
+            elif char == "[":
                 end = -1
                 for next_pos, next_char in enumerate(code[pos:]):
-                    if next_char == ']':
+                    if next_char == "]":
                         end = pos + next_pos
                         break
                 if end == -1:
-                    raise RuntimeError('Unclosed bracket')
+                    raise RuntimeError("Unclosed bracket")
 
                 pos += 1
                 while self.cells[self.index] != 0:

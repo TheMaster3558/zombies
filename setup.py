@@ -11,6 +11,10 @@ with open("zombies/__init__.py", "r") as file:
     description = re.search(r'"""([\w\s.]+)"""', text).group(1)
 
 
+with open("README.rst", "r") as file:
+    readme = file.read()
+
+
 packages = ["zombies"]
 
 
@@ -22,6 +26,8 @@ setuptools.setup(
     author="The Master",
     license="MIT",
     description=description,
+    long_description=readme,
+    long_description_content_type="text/x-rst",
     version=version,
     packages=packages,
     include_package_data=True,
