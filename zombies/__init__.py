@@ -1,9 +1,6 @@
 """Run brainfuck code."""
 
-try:
-    from zombies_speed import BF
-except ImportError:
-    from .zombies import BF
+from .zombies import BF
 
 
 __all__ = "BF"
