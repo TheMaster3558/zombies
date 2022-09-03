@@ -18,7 +18,7 @@ with open("README.rst", "r") as file:
 packages = ["zombies"]
 
 
-extra_requires = {"dev": ["mypy"]}
+extra_requires = {"dev": ["black"]}
 
 
 setuptools.setup(

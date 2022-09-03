@@ -54,4 +54,4 @@ Use the REPL
 
 Code Formatting
 ----------------
-All code should mostly follow PEP8.
+All code should be formatted with `black`.

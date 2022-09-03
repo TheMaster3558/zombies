@@ -24,7 +24,6 @@ DEALINGS IN THE SOFTWARE.
 
 import argparse
 import sys
-import time
 from . import __author__, __doc__, __license__, __name__, __version__, BF
 
 
