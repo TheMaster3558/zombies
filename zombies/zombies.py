@@ -34,33 +34,36 @@ __all__ = ("BF",)
 
 class BF:
     def __init__(self, stdin: "Readable" = sys.stdin, stdout: "Writable" = sys.stdout):
-        self.cells = [0]
+        self.__cells = [0]
         self.index = 0
 
         self.stdin = stdin
         self.stdout = stdout
+
+    def print_cells(self) -> None:
+        print(self.__cells)
 
     def run(self, code: str) -> None:
         iterator = iter(enumerate(code))
         for pos, char in iterator:
             if char == ">":
                 self.index += 1
-                while self.index >= len(self.cells):
-                    self.cells.append(0)
+                while self.index >= len(self.__cells):
+                    self.__cells.append(0)
             elif char == "<":
                 while self.index <= 0:
-                    self.cells.insert(0, 0)
+                    self.__cells.insert(0, 0)
                 else:
                     self.index -= 1
             elif char == "+":
-                self.cells[self.index] += 1
+                self.__cells[self.index] += 1
             elif char == "-":
-                self.cells[self.index] -= 1
+                self.__cells[self.index] -= 1
             elif char == ",":
                 input_char = self.stdin.read(1)
-                self.cells[self.index] = ord(input_char)
+                self.__cells[self.index] = ord(input_char)
             elif char == ".":
-                output_char = chr(self.cells[self.index])
+                output_char = chr(self.__cells[self.index])
                 self.stdout.write(output_char)
             elif char == "[":
                 end = -1
@@ -72,7 +75,7 @@ class BF:
                     raise RuntimeError("Unclosed bracket")
 
                 pos += 1
-                while self.cells[self.index] != 0:
+                while self.__cells[self.index] != 0:
                     self.run(code[pos:end])
 
                 while pos < end:
