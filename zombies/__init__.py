@@ -3,7 +3,7 @@
 from .zombies import BF
 
 
-__all__ = "BF"
+__all__ = ("BF",)
 
 
 __name__ = "zombies"
