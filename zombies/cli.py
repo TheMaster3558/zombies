@@ -57,14 +57,19 @@ def main() -> int:
         print(
             f"Brainfuck REPL made in Python | {__name__} {__version__} by {__author__} | License {__license__}"
         )
+        print('Type "cells" view the the current cells')
         print('Type "stop" to exit')
 
         try:
             while True:
                 print("\\\\\\", end=" ")
+
                 line = input()
                 if line == "stop":
                     break
+                if line == "cells":
+                    interpreter.print_cells()
+
                 interpreter.run(line)
                 print()
         except KeyboardInterrupt:
