@@ -61,7 +61,7 @@ class BF:
                 self.__cells[self.index] -= 1
             elif char == ",":
                 input_char = self.stdin.read(1)
-                self.__cells[self.index] = ord(input_char)[0]
+                self.__cells[self.index] = ord(input_char[0])
             elif char == ".":
                 output_char = chr(self.__cells[self.index])
                 self.stdout.write(output_char)
