@@ -46,6 +46,8 @@ class BF:
         for list_index, cell_value in enumerate(self.__cells):
             if list_index == self.__index:
                 spaces = len(str(self.__cells[:self.__index])) + ceil(len(str(cell_value)) / 2)
+                if list_index == 0:
+                    spaces -= 2
                 break
 
         assert spaces != -1
