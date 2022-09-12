@@ -51,7 +51,7 @@ class BF:
                 break
 
         assert spaces != -1
-        print(self.__cells, ' ' * spaces + '^', sep='\n')
+        print(self.__cells, ' ' * spaces + '^', sep='\n', file=self.stdout)
 
     def run(self, code: str) -> None:
         iterator = iter(enumerate(code))
