@@ -8,5 +8,5 @@ __all__ = ("BF",)
 
 __name__ = "zombies"
 __author__ = "The Master"
-__version__ = "1.0.0a"
+__version__ = "1.0.0"
 __license__ = "MIT"
