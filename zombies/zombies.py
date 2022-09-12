@@ -45,13 +45,15 @@ class BF:
         spaces = -1
         for list_index, cell_value in enumerate(self.__cells):
             if list_index == self.__index:
-                spaces = len(str(self.__cells[:self.__index])) + ceil(len(str(cell_value)) / 2)
+                spaces = len(str(self.__cells[: self.__index])) + ceil(
+                    len(str(cell_value)) / 2
+                )
                 if list_index == 0:
                     spaces -= 2
                 break
 
         assert spaces != -1
-        print(self.__cells, ' ' * spaces + '^', sep='\n', file=self.stdout)
+        print(self.__cells, " " * spaces + "^", sep="\n", file=self.stdout)
 
     def run(self, code: str) -> None:
         iterator = iter(enumerate(code))
